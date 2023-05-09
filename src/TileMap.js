@@ -1,3 +1,4 @@
+import Pacman from "./Pacman.js";
 export default class TileMap {
     constructor(tileSize) {
         this.tileSize = tileSize;
@@ -14,32 +15,40 @@ export default class TileMap {
         this.shank = new Image();
         this.shank.src = "../images/prison-shank1.png";
 
-        this.pac1 = new Image();
-        this.pac1.src = "../images/pacman1.png";
-
         this.guard1 = new Image();
         this.guard1.src = "../images/guard1.png";
+
+        this.pill = new Image();
+        this.pill.src = "../images/pill.png";
     }
+
+    // 0 = Canabis leaf
+    // 1 = Walls
+    // 2 = Bars 
+    // 3 = Shank
+    // 4 = Pacman
+    // 5 = guard
+    // 6 = pill
 
     map = [
         [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1],
+        [1, 4, 6, 0, 0, 0, 0, 0, 6, 0, 0, 3, 1],
         [1, 0, 1, 2, 1, 1, 2, 0, 1, 2, 1, 0, 1],
-        [1, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 1],
-        [1, 0, 2, 0, 2, 1, 0, 2, 0, 2, 1, 0, 1],
+        [1, 0, 1, 3, 0, 6, 0, 0, 0, 1, 0, 0, 1],
+        [1, 0, 2, 0, 2, 1, 0, 2, 0, 2, 1, 6, 1],
         [2, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 2],
         [1, 0, 2, 0, 0, 0, 1, 2, 0, 1, 2, 0, 1],
-        [1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 1, 0, 1],
+        [1, 0, 1, 2, 1, 6, 0, 0, 6, 0, 0, 6, 1],
+        [1, 6, 0, 0, 0, 0, 0, 2, 1, 0, 1, 0, 1],
         [1, 0, 1, 1, 0, 2, 0, 5, 1, 0, 1, 0, 1],
         [2, 0, 0, 0, 0, 1, 0, 3, 2, 0, 0, 0, 2],
         [1, 0, 1, 2, 0, 2, 1, 2, 1, 0, 1, 0, 1],
-        [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1],
+        [1, 0, 0, 1, 6, 0, 0, 0, 0, 6, 2, 0, 1],
         [1, 0, 0, 1, 0, 1, 2, 1, 0, 1, 1, 0, 1],
         [2, 0, 1, 2, 0, 0, 0, 2, 1, 2, 0, 0, 2],
-        [1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 6, 0, 0, 3, 1, 0, 6, 0, 0, 0, 6, 1],
         [1, 0, 2, 1, 1, 2, 1, 0, 1, 2, 1, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1],
+        [1, 0, 6, 0, 0, 0, 0, 0, 0, 0, 6, 3, 1],
         [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1]
     ];
 
@@ -55,11 +64,21 @@ export default class TileMap {
                     this.#drawBars(ctx, column, row, this.tileSize);
                 } else if (tile === 3) {
                     this.#drawShank(ctx, column, row, this.tileSize);
-                } else if (tile === 4) {
-                    this.#drawPac(ctx, column, row, this.tileSize);
+                    // } else if (tile === 4) {
+                    //     this.#drawPac(ctx, column, row, this.tileSize);
                 } else if (tile === 5) {
                     this.#drawGuard(ctx, column, row, this.tileSize);
+                } else if (tile === 6) {
+                    this.#drawPill(ctx, column, row, this.tileSize);
                 }
+
+                // ctx.strokeStyle = "yellow";
+                // ctx.strokeRect(
+                //     column * this.tileSize,
+                //     row * this.tileSize,
+                //     this.tileSize,
+                //     this.tileSize
+                // );
             }
         }
     }
@@ -67,16 +86,6 @@ export default class TileMap {
     #drawGuard(ctx, column, row, size) {
         ctx.drawImage(
             this.guard1,
-            column * this.tileSize,
-            row * this.tileSize,
-            size,
-            size
-        );
-    }
-
-    #drawPac(ctx, column, row, size) {
-        ctx.drawImage(
-            this.pac1,
             column * this.tileSize,
             row * this.tileSize,
             size,
@@ -114,6 +123,16 @@ export default class TileMap {
         );
     }
 
+    #drawPill(ctx, column, row, size) {
+        ctx.drawImage(
+            this.pill,
+            column * this.tileSize,
+            row * this.tileSize,
+            size,
+            size
+        );
+    }
+
     #drawWall(ctx, column, row, size) {
         ctx.drawImage(
             this.wall,
@@ -122,6 +141,24 @@ export default class TileMap {
             size,
             size
         );
+    }
+
+    getPacman(velocity) {
+        for (let row = 0; row < this.map.length; row++) {
+            for (let column = 0; column < this.map[row].length; column++) {
+                let tile = this.map[row][column];
+                if (tile === 4) {
+                    this.map[row][column] = 0;
+                    return new Pacman(
+                        column * this.tileSize,
+                        row * this.tileSize,
+                        this.tileSize,
+                        velocity,
+                        this
+                    );
+                }
+            }
+        }
     }
 
     setCanvasSize(canvas) {
