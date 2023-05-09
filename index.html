@@ -6,10 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacman-Prison</title>
+
+    <style>
+        #gameCanvas {
+            box-shadow: 10px 10px 20px black;
+            background-color: black;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: comic sans MS;
+            color: yellow;
+            text-shadow: 8px 8px 5px black;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(0deg,
+                    rgb(0, 217, 255) 50%,
+                    rgb(4, 0, 255) 100%);
+        }
+    </style>
+
 </head>
 
 <body>
-
+    <div>
+        <h1>Pac-Man Prison</h1>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <script src="src/Game.js" type="module"></script>
 </body>
 
 </html>
