@@ -4,22 +4,22 @@ export default class TileMap {
         this.tileSize = tileSize;
 
         this.leaf = new Image();
-        this.leaf.src = "../images/canabis-leaf.png";
+        this.leaf.src = "./images/canabis-leaf.png";
 
         this.wall = new Image();
-        this.wall.src = "../images/wall.png";
+        this.wall.src = "./images/wall.png";
 
         this.bars = new Image();
-        this.bars.src = "../images/bars.png";
+        this.bars.src = "./images/bars.png";
 
         this.shank = new Image();
-        this.shank.src = "../images/prison-shank1.png";
+        this.shank.src = "./images/prison-shank1.png";
 
         this.guard1 = new Image();
-        this.guard1.src = "../images/guard1.png";
+        this.guard1.src = "./images/guard1.png";
 
         this.pill = new Image();
-        this.pill.src = "../images/pill.png";
+        this.pill.src = "./images/pill.png";
     }
 
     // 0 = Canabis leaf
