@@ -21,6 +21,12 @@ export default class TileMap {
 
         this.pill = new Image();
         this.pill.src = "images/pill.png";
+
+        this.fags = new Image();
+        this.fags.src = "images/fags.png";
+
+        this.phone = new Image();
+        this.phone.src = "images/phone.png";
     }
 
     // 0 = Canabis leaf
@@ -30,25 +36,27 @@ export default class TileMap {
     // 4 = Pacman
     // 5 = guard
     // 6 = pill
+    // fags = 7
+    // phone = 8
 
     map = [
         [1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 4, 6, 0, 0, 0, 0, 6, 0, 0, 3, 1],
+        [1, 4, 6, 0, 8, 0, 7, 6, 0, 0, 3, 1],
         [1, 0, 1, 2, 1, 2, 0, 1, 2, 1, 0, 1],
-        [1, 0, 1, 3, 6, 0, 0, 0, 1, 0, 0, 1],
-        [1, 0, 2, 0, 1, 0, 2, 0, 2, 1, 6, 1],
-        [2, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 2],
-        [1, 0, 2, 0, 0, 1, 2, 0, 1, 2, 0, 1],
-        [1, 0, 1, 2, 6, 0, 0, 6, 0, 0, 6, 1],
-        [1, 6, 0, 0, 0, 0, 2, 1, 0, 1, 0, 1],
+        [1, 0, 1, 3, 6, 0, 0, 0, 1, 8, 0, 1],
+        [1, 7, 2, 0, 1, 0, 2, 0, 2, 1, 6, 1],
+        [2, 0, 1, 8, 0, 0, 1, 7, 0, 1, 0, 2],
+        [1, 0, 2, 7, 0, 1, 2, 0, 1, 2, 0, 1],
+        [1, 7, 1, 2, 6, 0, 0, 6, 0, 0, 6, 1],
+        [1, 6, 0, 8, 0, 0, 2, 1, 0, 1, 0, 1],
         [1, 0, 1, 1, 2, 0, 5, 1, 0, 1, 0, 1],
-        [2, 0, 0, 0, 1, 0, 3, 2, 0, 0, 0, 2],
-        [1, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 1],
-        [1, 0, 0, 1, 0, 0, 0, 0, 6, 2, 0, 1],
-        [1, 0, 0, 1, 1, 2, 1, 0, 1, 1, 0, 1],
+        [2, 0, 8, 0, 1, 0, 3, 2, 7, 0, 8, 2],
+        [1, 7, 1, 2, 2, 1, 2, 1, 0, 1, 7, 1],
+        [1, 8, 0, 1, 7, 0, 0, 0, 6, 2, 0, 1],
+        [1, 0, 0, 1, 1, 2, 1, 8, 1, 1, 0, 1],
         [1, 6, 0, 0, 1, 0, 6, 0, 0, 0, 6, 1],
         [1, 0, 2, 1, 2, 1, 0, 1, 2, 1, 0, 1],
-        [1, 0, 6, 0, 0, 0, 0, 0, 0, 6, 3, 1],
+        [1, 0, 6, 0, 7, 0, 0, 8, 0, 6, 3, 1],
         [1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1]
     ];
 
@@ -64,12 +72,14 @@ export default class TileMap {
                     this.#drawBars(ctx, column, row, this.tileSize);
                 } else if (tile === 3) {
                     this.#drawShank(ctx, column, row, this.tileSize);
-                    // } else if (tile === 4) {
-                    //     this.#drawPac(ctx, column, row, this.tileSize);
                 } else if (tile === 5) {
                     this.#drawGuard(ctx, column, row, this.tileSize);
                 } else if (tile === 6) {
                     this.#drawPill(ctx, column, row, this.tileSize);
+                } else if (tile === 7) {
+                    this.#drawFags(ctx, column, row, this.tileSize);
+                } else if (tile === 8) {
+                    this.#drawPhone(ctx, column, row, this.tileSize);
                 }
 
                 // ctx.strokeStyle = "yellow";
@@ -126,6 +136,26 @@ export default class TileMap {
     #drawPill(ctx, column, row, size) {
         ctx.drawImage(
             this.pill,
+            column * this.tileSize,
+            row * this.tileSize,
+            size,
+            size
+        );
+    }
+
+    #drawFags(ctx, column, row, size) {
+        ctx.drawImage(
+            this.fags,
+            column * this.tileSize,
+            row * this.tileSize,
+            size,
+            size
+        );
+    }
+
+    #drawPhone(ctx, column, row, size) {
+        ctx.drawImage(
+            this.phone,
             column * this.tileSize,
             row * this.tileSize,
             size,
