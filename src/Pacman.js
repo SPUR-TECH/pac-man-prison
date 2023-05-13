@@ -16,6 +16,8 @@ export default class Pacman {
         this.pacmanRotation = this.Rotation.right;
         this.wakaSound = new Audio("sounds/waka.wav");
 
+        this.madeFirstMove = false;
+
 
         // this.touchY = '';
         // this.touchThreshold = 30

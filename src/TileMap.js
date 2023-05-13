@@ -17,6 +17,9 @@ export default class TileMap {
         this.shank = new Image();
         this.shank.src = "images/prison-shank1.png";
 
+        this.shank2 = new Image();
+        this.shank2.src = "images/prison-shank2.png";
+
         this.guard1 = new Image();
         this.guard1.src = "images/guard1.png";
 
@@ -28,6 +31,10 @@ export default class TileMap {
 
         this.phone = new Image();
         this.phone.src = "images/phone.png";
+
+        this.prisonShank = this.shank2;
+        this.prisonShankAnmationTimerDefault = 30;
+        this.prisonShankAnmationTimer = this.prisonShankAnmationTimerDefault;
     }
 
     // 0 = Canabis leaf
@@ -73,7 +80,7 @@ export default class TileMap {
                 } else if (tile === 2) {
                     this.#drawBars(ctx, column, row, this.tileSize);
                 } else if (tile === 3) {
-                    this.#drawShank(ctx, column, row, this.tileSize);
+                    this.#drawShank2(ctx, column, row, this.tileSize);
                 } else if (tile === 6) {
                     this.#drawPill(ctx, column, row, this.tileSize);
                 } else if (tile === 7) {
@@ -83,26 +90,21 @@ export default class TileMap {
                 } // else if (tile === 9) {
                 //  this.#drawCash(ctx, column, row, this.tileSize);
                 // } 
-
-                // ctx.strokeStyle = "yellow";
-                // ctx.strokeRect(
-                //     column * this.tileSize,
-                //     row * this.tileSize,
-                //     this.tileSize,
-                //     this.tileSize
-                // );
             }
         }
     }
 
-    #drawShank(ctx, column, row, size) {
-        ctx.drawImage(
-            this.shank,
-            column * this.tileSize,
-            row * this.tileSize,
-            size,
-            size
-        );
+    #drawShank2(ctx, column, row, size) {
+        this.prisonShankAnmationTimer--;
+        if (this.prisonShankAnmationTimer === 0) {
+            this.prisonShankAnmationTimer = this.prisonShankAnmationTimerDefault;
+            if (this.prisonShank == this.shank2) {
+                this.prisonShank = this.shank;
+            } else {
+                this.prisonShank = this.shank2;
+            }
+        }
+        ctx.drawImage(this.prisonShank, column * size, row * size, size, size);
     }
 
     #drawBars(ctx, column, row, size) {
