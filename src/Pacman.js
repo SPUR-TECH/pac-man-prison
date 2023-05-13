@@ -62,37 +62,39 @@ export default class Pacman {
         this.#move();
         this.#animate();
 
-        // const size = this.tileSize / 2;
+        this.#eatDot();
 
-        // ctx.save();
-        // ctx.translate(this.x + size, this.y + size);
-        // ctx.rotate((this.pacmanRotation * 90 * Math.PI) / 180);
-        // ctx.drawImage(
-        //     this.pacmanImages[this.pacmanImageIndex],
-        //     -size,
-        //     -size,
-        //     this.tileSize,
-        //     this.tileSize
-        // );
-        // ctx.restore();
+        const turn = this.tileSize / 2;
 
+        ctx.save();
+        ctx.translate(this.x + turn, this.y + turn);
+        ctx.rotate((this.pacmanRotation * 90 * Math.PI) / 180);
         ctx.drawImage(
-            this.pacmanImages[this.pacmanImageIndex], this.x, this.y, this.tileSize, this.tileSize
+            this.pacmanImages[this.pacmanImageIndex],
+            -turn,
+            -turn,
+            this.tileSize,
+            this.tileSize
         );
+
+        ctx.restore();
+        // ctx.drawImage(
+        //     this.pacmanImages[this.pacmanImageIndex], this.x, this.y, this.tileSize, this.tileSize
+        // );
     }
 
     #loadPacmanImages() {
         const pacmanImage1 = new Image();
-        pacmanImage1.src = "images/pacman1.png";
+        pacmanImage1.src = "images/pac0.png";
 
         const pacmanImage2 = new Image();
-        pacmanImage2.src = "images/pacman2.png";
+        pacmanImage2.src = "images/pac1.png";
 
         const pacmanImage3 = new Image();
-        pacmanImage3.src = "images/pacman3.png";
+        pacmanImage3.src = "images/pac2.png";
 
         const pacmanImage4 = new Image();
-        pacmanImage4.src = "images/pacman2.png";
+        pacmanImage4.src = "images/pac1.png";
 
         this.pacmanImages = [
             pacmanImage1,
@@ -134,6 +136,12 @@ export default class Pacman {
             this.madeFirstMove = true;
         }
     };
+
+    #eatDot() {
+        if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
+            // this.wakaSound.play();
+        }
+    }
 
     #animate() {
         if (this.pacmanAnimationTimer == null) {

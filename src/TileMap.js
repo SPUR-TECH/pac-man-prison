@@ -38,6 +38,7 @@ export default class TileMap {
     // 6 = pill
     // fags = 7
     // phone = 8
+    // cash = 9
 
     map = [
         [1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
@@ -80,7 +81,11 @@ export default class TileMap {
                     this.#drawFags(ctx, column, row, this.tileSize);
                 } else if (tile === 8) {
                     this.#drawPhone(ctx, column, row, this.tileSize);
-                }
+                } // else if (tile === 9) {
+                //  this.#drawCash(ctx, column, row, this.tileSize);
+                // } else {
+                //     this.#drawBlank(ctx, column, row, this.tileSize);
+                // }
 
                 // ctx.strokeStyle = "yellow";
                 // ctx.strokeRect(
@@ -163,6 +168,16 @@ export default class TileMap {
         );
     }
 
+    // #drawCash(ctx, column, row, size) {
+    //     ctx.drawImage(
+    //         this.cash,
+    //         column * this.tileSize,
+    //         row * this.tileSize,
+    //         size,
+    //         size
+    //     );
+    // }
+
     #drawWall(ctx, column, row, size) {
         ctx.drawImage(
             this.wall,
@@ -236,6 +251,30 @@ export default class TileMap {
                 return true;
             }
             if (tile === 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    eatDot(x, y) {
+        const row = y / this.tileSize;
+        const column = x / this.tileSize;
+        if (Number.isInteger(row) && Number.isInteger(column)) {
+            if (this.map[row][column] === 0) {
+                this.map[row][column] = 9;
+                return true;
+            }
+            if (this.map[row][column] === 6) {
+                this.map[row][column] = 9;
+                return true;
+            }
+            if (this.map[row][column] === 7) {
+                this.map[row][column] = 9;
+                return true;
+            }
+            if (this.map[row][column] === 8) {
+                this.map[row][column] = 10;
                 return true;
             }
         }
