@@ -47,6 +47,7 @@ export default class TileMap {
     // fags = 7
     // phone = 8
     // cash = 9
+    // blank = 11
 
     map = [
         [1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
@@ -87,6 +88,8 @@ export default class TileMap {
                     this.#drawFags(ctx, column, row, this.tileSize);
                 } else if (tile === 8) {
                     this.#drawPhone(ctx, column, row, this.tileSize);
+                } else if (tile === 11) {
+                    this.#drawBlank(ctx, column, row, this.tileSize);
                 } // else if (tile === 9) {
                 //  this.#drawCash(ctx, column, row, this.tileSize);
                 // } 
@@ -105,6 +108,16 @@ export default class TileMap {
             }
         }
         ctx.drawImage(this.prisonShank, column * size, row * size, size, size);
+    }
+
+    #drawWall(ctx, column, row, size) {
+        ctx.drawImage(
+            this.wall,
+            column * this.tileSize,
+            row * this.tileSize,
+            size,
+            size
+        );
     }
 
     #drawBars(ctx, column, row, size) {
@@ -157,6 +170,11 @@ export default class TileMap {
         );
     }
 
+    #drawBlank(ctx, column, row, size) {
+        ctx.fillStyle = "black";
+        ctx.fillRect(column * this.tileSize, row * this.tileSize, size, size);
+    }
+
     // #drawCash(ctx, column, row, size) {
     //     ctx.drawImage(
     //         this.cash,
@@ -166,16 +184,6 @@ export default class TileMap {
     //         size
     //     );
     // }
-
-    #drawWall(ctx, column, row, size) {
-        ctx.drawImage(
-            this.wall,
-            column * this.tileSize,
-            row * this.tileSize,
-            size,
-            size
-        );
-    }
 
     getPacman(velocity) {
         for (let row = 0; row < this.map.length; row++) {
@@ -274,19 +282,31 @@ export default class TileMap {
         const column = x / this.tileSize;
         if (Number.isInteger(row) && Number.isInteger(column)) {
             if (this.map[row][column] === 0) {
-                this.map[row][column] = 9;
+                this.map[row][column] = 11;
                 return true;
             }
             if (this.map[row][column] === 6) {
-                this.map[row][column] = 9;
+                this.map[row][column] = 11;
                 return true;
             }
             if (this.map[row][column] === 7) {
-                this.map[row][column] = 9;
+                this.map[row][column] = 11;
                 return true;
             }
             if (this.map[row][column] === 8) {
-                this.map[row][column] = 10;
+                this.map[row][column] = 11;
+                return true;
+            }
+        }
+        return false;
+    }
+    eatPowerDot(x, y) {
+        const row = y / this.tileSize;
+        const column = x / this.tileSize;
+        if (Number.isInteger(row) && Number.isInteger(column)) {
+            const tile = this.map[row][column];
+            if (tile === 3) {
+                this.map[row][column] = 11;
                 return true;
             }
         }
