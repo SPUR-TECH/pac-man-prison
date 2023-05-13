@@ -74,8 +74,6 @@ export default class TileMap {
                     this.#drawBars(ctx, column, row, this.tileSize);
                 } else if (tile === 3) {
                     this.#drawShank(ctx, column, row, this.tileSize);
-                } else if (tile === 5) {
-                    this.#drawGuard(ctx, column, row, this.tileSize);
                 } else if (tile === 6) {
                     this.#drawPill(ctx, column, row, this.tileSize);
                 } else if (tile === 7) {
@@ -84,9 +82,7 @@ export default class TileMap {
                     this.#drawPhone(ctx, column, row, this.tileSize);
                 } // else if (tile === 9) {
                 //  this.#drawCash(ctx, column, row, this.tileSize);
-                // } else {
-                //     this.#drawBlank(ctx, column, row, this.tileSize);
-                // }
+                // } 
 
                 // ctx.strokeStyle = "yellow";
                 // ctx.strokeRect(
@@ -97,16 +93,6 @@ export default class TileMap {
                 // );
             }
         }
-    }
-
-    #drawGuard(ctx, column, row, size) {
-        ctx.drawImage(
-            this.guard1,
-            column * this.tileSize,
-            row * this.tileSize,
-            size,
-            size
-        );
     }
 
     #drawShank(ctx, column, row, size) {
