@@ -14,6 +14,8 @@ export default class Pacman {
         this.pacmanAnimationTimer = null;
 
         this.pacmanRotation = this.Rotation.right;
+        this.wakaSound = new Audio("sounds/waka.wav");
+
 
         // this.touchY = '';
         // this.touchThreshold = 30
@@ -103,7 +105,7 @@ export default class Pacman {
             pacmanImage4
         ];
 
-        this.pacmanImageIndex = 0;
+        this.pacmanImageIndex = 1;
     }
 
     #keydown = (event) => {
@@ -139,7 +141,7 @@ export default class Pacman {
 
     #eatDot() {
         if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
-            // this.wakaSound.play();
+            this.wakaSound.play();
         }
     }
 
