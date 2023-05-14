@@ -17,21 +17,21 @@ const gameWinSound = new Audio("sounds/gameWin.wav");
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     tileMap.draw(ctx);
-    drawGameEnd();
     pacman.draw(ctx, pause(), enemies);
     enemies.forEach((enemy) => enemy.draw(ctx, pause(), pacman));
+    drawGameEnd();
     checkGameOver();
-    // checkGameWin();
+    checkGameWin();
 }
 
-// function checkGameWin() {
-//     if (!gameWin) {
-//         gameWin = tileMap.didWin();
-//         if (gameWin) {
-//             gameWinSound.play();
-//         }
-//     }
-// }
+function checkGameWin() {
+    if (!gameWin) {
+        gameWin = tileMap.didWin();
+        if (gameWin) {
+            gameWinSound.play();
+        }
+    }
+}
 
 function checkGameOver() {
     if (!gameOver) {
@@ -54,19 +54,21 @@ function pause() {
 
 function drawGameEnd() {
     if (gameOver || gameWin) {
-        let text = " You Win!";
+        let text = '   " You Win! "';
         if (gameOver) {
-            text = "Game Over";
+            text = '" Game Over ! "';
         }
 
         ctx.fillStyle = "black";
-        ctx.fillRect(0, canvas.height / 2.5, canvas.width, 80);
+        ctx.fillRect(0, canvas.height / 2.54, canvas.width, 80);
 
-        ctx.font = "75px comic sans";
+        ctx.font = "50px comic sans MS";
         const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0", "yellow");
+        gradient.addColorStop("0.2", "yellow");
         gradient.addColorStop("0.5", "blue");
-        gradient.addColorStop("1.0", "red");
+        gradient.addColorStop("0.7", "yellow");
+        gradient.addColorStop("1.0", "yellow");
 
         ctx.fillStyle = gradient;
         ctx.fillText(text, 10, canvas.height / 2);

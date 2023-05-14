@@ -70,7 +70,7 @@ export default class Pacman {
         up: 3,
     };
 
-    draw(ctx, pause) {
+    draw(ctx, pause, enemies) {
         if (!pause) {
             this.#move();
             this.#animate();
@@ -78,6 +78,7 @@ export default class Pacman {
 
         this.#eatDot();
         this.#eatPowerDot();
+        this.#eatGuard(enemies);
 
         const turn = this.tileSize / 2;
 
@@ -149,48 +150,6 @@ export default class Pacman {
         }
     };
 
-    #eatDot() {
-        if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
-            this.wakaSound.play();
-        }
-    }
-
-    #eatPowerDot() {
-        if (this.tileMap.eatPowerDot(this.x, this.y)) {
-            this.powerDotSound.play();
-            this.powerDotActive = true;
-            this.powerDotAboutToExpire = false;
-            this.timers.forEach((timer) => clearTimeout(timer));
-            this.timers = [];
-
-            let powerDotTimer = setTimeout(() => {
-                this.powerDotActive = false;
-                this.powerDotAboutToExpire = false;
-            }, 1000 * 6);
-
-            this.timers.push(powerDotTimer);
-
-            let powerDotAboutToExpireTimer = setTimeout(() => {
-                this.powerDotAboutToExpire = true;
-            }, 1000 * 3);
-
-            this.timers.push(powerDotAboutToExpireTimer);
-        }
-    }
-
-    #animate() {
-        if (this.pacmanAnimationTimer == null) {
-            return;
-        }
-        this.pacmanAnimationTimer--;
-        if (this.pacmanAnimationTimer == 0) {
-            this.pacmanAnimationTimer = this.pacmanAnimationTimerDefault;
-            this.pacmanImageIndex++;
-            if (this.pacmanImageIndex == this.pacmanImages.length)
-                this.pacmanImageIndex = 0;
-        }
-    }
-
     #move() {
         if (this.currentMovingDirection !== this.requestedMovingDirection) {
             if (
@@ -241,6 +200,59 @@ export default class Pacman {
                 this.x += this.velocity;
                 this.pacmanRotation = this.Rotation.right;
                 break;
+        }
+    }
+
+    #eatDot() {
+        if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
+            this.wakaSound.play();
+        }
+    }
+
+    #eatPowerDot() {
+        if (this.tileMap.eatPowerDot(this.x, this.y)) {
+            this.powerDotSound.play();
+            this.powerDotActive = true;
+            this.powerDotAboutToExpire = false;
+            this.timers.forEach((timer) => clearTimeout(timer));
+            this.timers = [];
+
+            let powerDotTimer = setTimeout(() => {
+                this.powerDotActive = false;
+                this.powerDotAboutToExpire = false;
+            }, 1000 * 6);
+
+            this.timers.push(powerDotTimer);
+
+            let powerDotAboutToExpireTimer = setTimeout(() => {
+                this.powerDotAboutToExpire = true;
+            }, 1000 * 3);
+
+            this.timers.push(powerDotAboutToExpireTimer);
+        }
+    }
+
+    #eatGuard(enemies, pacman) {
+        if (this.powerDotActive) {
+            const collideEnemies = enemies.filter((enemy) => enemy.collideWith(this));
+            collideEnemies.forEach((enemy) => {
+                enemies.splice(enemies.indexOf(enemy), 1);
+                this.eatGuardSound.play();
+            });
+        }
+    }
+
+
+    #animate() {
+        if (this.pacmanAnimationTimer == null) {
+            return;
+        }
+        this.pacmanAnimationTimer--;
+        if (this.pacmanAnimationTimer == 0) {
+            this.pacmanAnimationTimer = this.pacmanAnimationTimerDefault;
+            this.pacmanImageIndex++;
+            if (this.pacmanImageIndex == this.pacmanImages.length)
+                this.pacmanImageIndex = 0;
         }
     }
 }
