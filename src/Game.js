@@ -54,7 +54,7 @@ function pause() {
 
 function drawGameEnd() {
     if (gameOver || gameWin) {
-        let text = '   " You Win! "';
+        let text = '  " You Win ! "';
         if (gameOver) {
             text = '" Game Over ! "';
         }
@@ -64,11 +64,11 @@ function drawGameEnd() {
 
         ctx.font = "50px comic sans MS";
         const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        gradient.addColorStop("0", "yellow");
-        gradient.addColorStop("0.2", "yellow");
-        gradient.addColorStop("0.5", "blue");
-        gradient.addColorStop("0.7", "yellow");
-        gradient.addColorStop("1.0", "yellow");
+        gradient.addColorStop("0.1", "yellow");
+        gradient.addColorStop("0.4", "rgb(2, 0, 143)");
+        gradient.addColorStop("0.8", "rgb(0, 255, 255)");
+        gradient.addColorStop("1.0", "rgb(0, 255, 255)");
+
 
         ctx.fillStyle = gradient;
         ctx.fillText(text, 10, canvas.height / 2);
