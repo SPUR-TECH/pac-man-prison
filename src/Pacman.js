@@ -16,6 +16,14 @@ export default class Pacman {
         this.pacmanRotation = this.Rotation.right;
         this.wakaSound = new Audio("sounds/waka.wav");
 
+        this.powerDotSound = new Audio("sounds/powerDot.wav");
+        this.powerDotActive = false;
+        this.powerDotAboutToExpire = false;
+        this.timers = [];
+
+        this.eatGuardSound = new Audio("sounds/eatGuard.wav");
+
+
         this.madeFirstMove = false;
 
 
@@ -62,9 +70,11 @@ export default class Pacman {
         up: 3,
     };
 
-    draw(ctx, column, row, size) {
-        this.#move();
-        this.#animate();
+    draw(ctx, pause) {
+        if (!pause) {
+            this.#move();
+            this.#animate();
+        }
 
         this.#eatDot();
         this.#eatPowerDot();
@@ -83,9 +93,6 @@ export default class Pacman {
         );
 
         ctx.restore();
-        // ctx.drawImage(
-        //     this.pacmanImages[this.pacmanImageIndex], this.x, this.y, this.tileSize, this.tileSize
-        // );
     }
 
     #loadPacmanImages() {
