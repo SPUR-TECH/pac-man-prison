@@ -283,7 +283,8 @@ export default class TileMap {
     }
 
     #dotsLeft() {
-        return this.map.flat().filter((tile) => tile === 0).length
+        return this.map.flat().filter((tile) => tile === 0).length && ((tile) => tile === 6).length && ((tile) => tile === 7).length && ((tile) => tile === 8).length
+
     }
 
     eatDot(x, y) {
