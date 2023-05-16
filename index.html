@@ -22,14 +22,18 @@
             border-radius: 5px;
             max-width: 100%;
             max-height: 100%;
+
+            /* display: none; */
         }
 
         h1 {
+
             text-align: center;
             font-family: comic sans MS;
             color: yellow;
             text-shadow: 8px 8px 5px black;
             padding-bottom: 20px;
+            top: 0;
         }
 
         body {
@@ -41,6 +45,16 @@
                     rgb(0, 255, 255) 50%,
                     rgb(2, 0, 143) 100%);
         }
+
+        button {
+            padding: 5px;
+            margin-bottom: 10px;
+            background: blue;
+            color: yellow;
+            text-shadow: 2px 2px 1px black;
+            border-radius: 5px;
+            box-shadow: 2px 2px 1px black;
+        }
     </style>
 
 </head>
@@ -49,16 +63,30 @@
     <div>
         <h1>Pac-Man Prison</h1>
         <canvas id="gameCanvas"></canvas>
-    </div>
-    <script>
 
-    </script>
+        <div id="startscreen" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url('images/pacman-startscreen.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10;
+                    display: none;
+                    
+        ">
+
+
+            <button id="start">start</button>
+        </div>
+    </div>
 
     <script src="src/Game.js" type="module"></script>
-    <script src="src/MovingDirection.js" type="module"></script>
-    <script src="src/Enemy.js" type="module"></script>
-    <script src="src/TileMap.js" type="module"></script>
-    <script src="src/Pacman.js" type="module"></script>
 
 </body>
 

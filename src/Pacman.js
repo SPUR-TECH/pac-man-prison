@@ -25,20 +25,22 @@ export default class Pacman {
 
         this.madeFirstMove = false;
 
-        let ontouchstart = 'touchstart(event)'
-        ontouchmove = 'touchmove(event)'
-        ontouchend = 'touchend(event)'
+        let ontouchstart = 'touchstart(event)',
+            ontouchmove = 'touchmove(event)',
+            ontouchend = 'touchend(event)'
 
         let startingX, startingY, movingX, movingY;
 
         window.addEventListener("touchstart", event => {
             startingX = event.touches[0].clientX;
             startingY = event.touches[0].clientY;
+            this.madeFirstMove = true;
         });
 
         window.addEventListener("touchmove", event => {
             movingX = event.touches[0].clientX;
             movingY = event.touches[0].clientY;
+            this.madeFirstMove = true;
         });
 
         window.addEventListener("touchend", event => {
@@ -215,6 +217,7 @@ export default class Pacman {
     #eatDot() {
         if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
             this.wakaSound.play();
+
         }
     }
 

@@ -190,7 +190,7 @@ export default class TileMap {
             for (let column = 0; column < this.map[row].length; column++) {
                 let tile = this.map[row][column];
                 if (tile === 4) {
-                    this.map[row][column] = 0;
+                    this.map[row][column] = 11;
                     return new Pacman(
                         column * this.tileSize,
                         row * this.tileSize,
@@ -283,8 +283,10 @@ export default class TileMap {
     }
 
     #dotsLeft() {
-        return this.map.flat().filter((tile) => tile === 0).length && ((tile) => tile === 6).length && ((tile) => tile === 7).length && ((tile) => tile === 8).length
-
+        return this.map.flat().filter((tile) => tile === 0).length &&
+            ((tile) => tile === 6).length &&
+            ((tile) => tile === 7).length &&
+            ((tile) => tile === 8).length
     }
 
     eatDot(x, y) {

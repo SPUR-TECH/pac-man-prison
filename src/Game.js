@@ -9,6 +9,8 @@ const tileMap = new TileMap(tileSize);
 const pacman = tileMap.getPacman(velocity);
 const enemies = tileMap.getEnemies(velocity);
 
+const button = document.getElementById('start');
+
 let gameOver = false;
 let gameWin = false;
 const gameOverSound = new Audio("sounds/gameOver.wav");
