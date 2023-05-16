@@ -23,38 +23,47 @@ export default class Pacman {
 
         this.eatGuardSound = new Audio("sounds/eatGuard.wav");
 
-
         this.madeFirstMove = false;
 
+        let ontouchstart = 'touchstart(event)'
+        ontouchmove = 'touchmove(event)'
+        ontouchend = 'touchend(event)'
 
-        // this.touchY = '';
-        // this.touchThreshold = 30
+        let startingX, startingY, movingX, movingY;
 
-        // let keys = {
-        //     Arrowup: {
-        //         pressed: false
-        //     },
-        //     Arrowdown: {
-        //         pressed: false
-        //     },
-        //     Arrowright: {
-        //         pressed: false
-        //     },
-        //     Arrowleft: {
-        //         pressed: false
-        //     }
-        // }
-
-        window.addEventListener("touchstart", e => {
-
+        window.addEventListener("touchstart", event => {
+            startingX = event.touches[0].clientX;
+            startingY = event.touches[0].clientY;
         });
 
-        window.addEventListener("touchmove", e => {
-
+        window.addEventListener("touchmove", event => {
+            movingX = event.touches[0].clientX;
+            movingY = event.touches[0].clientY;
         });
 
-        window.addEventListener("touchend", e => {
-
+        window.addEventListener("touchend", event => {
+            if (startingX + 100 < movingX) {
+                if (this.currentMovingDirection == MovingDirection.left)
+                    this.currentMovingDirection = MovingDirection.right;
+                this.requestedMovingDirection = MovingDirection.right;
+                this.madeFirstMove = true;
+            } else if (startingX - 100 > movingX) {
+                if (this.currentMovingDirection == MovingDirection.right)
+                    this.currentMovingDirection = MovingDirection.left;
+                this.requestedMovingDirection = MovingDirection.left;
+                this.madeFirstMove = true;
+            }
+            if (startingY + 100 < movingY) {
+                if (this.currentMovingDirection == MovingDirection.up)
+                    this.currentMovingDirection = MovingDirection.down;
+                this.requestedMovingDirection = MovingDirection.down;
+                this.madeFirstMove = true;
+            } else if (startingY - 100 > movingY) {
+                if (this.currentMovingDirection == MovingDirection.down)
+                    this.currentMovingDirection = MovingDirection.up;
+                this.requestedMovingDirection = MovingDirection.up;
+                this.madeFirstMove = true;
+            }
 
         });
 
