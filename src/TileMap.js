@@ -51,8 +51,8 @@ export default class TileMap {
 
     map = [
         [1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 4, 0, 0, 8, 0, 7, 0, 6, 0, 7, 1],
-        [1, 0, 1, 2, 1, 2, 0, 1, 2, 1, 0, 1],
+        [1, 4, 11, 0, 8, 0, 7, 0, 6, 0, 7, 1],
+        [1, 11, 1, 2, 1, 2, 0, 1, 2, 1, 0, 1],
         [1, 0, 1, 7, 6, 0, 0, 0, 1, 8, 0, 1],
         [1, 7, 2, 0, 1, 0, 2, 0, 2, 1, 6, 1],
         [2, 0, 1, 8, 0, 0, 1, 7, 3, 1, 0, 2],
@@ -283,10 +283,7 @@ export default class TileMap {
     }
 
     #dotsLeft() {
-        return this.map.flat().filter((tile) => tile === 0).length &&
-            ((tile) => tile === 6).length &&
-            ((tile) => tile === 7).length &&
-            ((tile) => tile === 8).length
+        return this.map.flat().filter((tile) => tile === 0).length
     }
 
     eatDot(x, y) {
