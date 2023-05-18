@@ -25,10 +25,6 @@ export default class Pacman {
 
         this.madeFirstMove = false;
 
-        let ontouchstart = 'touchstart(event)',
-            ontouchmove = 'touchmove(event)',
-            ontouchend = 'touchend(event)'
-
         let startingX, startingY, movingX, movingY;
 
         window.addEventListener("touchstart", event => {
@@ -250,6 +246,7 @@ export default class Pacman {
             collideEnemies.forEach((enemy) => {
                 enemies.splice(enemies.indexOf(enemy), 1);
                 this.eatGuardSound.play();
+
             });
         }
     }
