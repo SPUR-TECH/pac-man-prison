@@ -13,6 +13,8 @@ body {
             rgb(0, 255, 255) 50%,
             rgb(2, 0, 143) 100%);
     overflow: hidden;
+    touch-action: pan-y;
+    touch-action: pan-x;
 }
 
 #gameCanvas {
