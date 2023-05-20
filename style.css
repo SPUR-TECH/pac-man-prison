@@ -12,6 +12,7 @@ body {
     background: linear-gradient(0deg,
             rgb(0, 255, 255) 50%,
             rgb(2, 0, 143) 100%);
+    overflow: hidden;
 }
 
 #gameCanvas {
@@ -156,7 +157,7 @@ h2 {
         margin-top: 80px;
     }
 
-    #how-to-play {
+    #controls {
         position: absolute;
         border-radius: 50px;
         padding: 5px;

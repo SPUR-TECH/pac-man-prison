@@ -62,7 +62,6 @@ export default class Pacman {
                 this.requestedMovingDirection = MovingDirection.up;
                 this.madeFirstMove = true;
             }
-
         });
 
         document.addEventListener("keydown", this.#keydown);
