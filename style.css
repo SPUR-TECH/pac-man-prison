@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: linear-gradient(0deg,
             rgb(0, 255, 255) 50%,
             rgb(2, 0, 143) 100%);
