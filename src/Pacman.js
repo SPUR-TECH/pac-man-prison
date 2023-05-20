@@ -36,7 +36,7 @@ export default class Pacman {
         window.addEventListener("touchmove", event => {
             movingX = event.touches[0].clientX;
             movingY = event.touches[0].clientY;
-
+            event.preventDefault()
         });
 
         window.addEventListener("touchend", event => {
