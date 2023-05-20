@@ -182,7 +182,7 @@ h2 {
         position: absolute;
         border-radius: 50px;
         padding: 5px;
-        width: 100px;
+        width: 150px;
         margin-top: 20px;
         background: rgb(43, 255, 0);
         text-shadow: 1px 1px 1px black;
@@ -197,6 +197,6 @@ h2 {
 
     #start-button {
         margin-top: 560px;
-        width: 250px;
+        width: 300px;
     }
 }
