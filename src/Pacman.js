@@ -246,7 +246,8 @@ export default class Pacman {
             collideEnemies.forEach((enemy) => {
                 enemies.splice(enemies.indexOf(enemy), 1);
                 this.eatGuardSound.play();
-
+                setTimeout(() =>
+                    enemies.push(enemy), 1000 * 6)
             });
         }
     }
