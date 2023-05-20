@@ -7,83 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="./images/pac1.png">
+
+    <link rel="stylesheet" href="style.css">
     <title>Pacman-Prison</title>
-
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        #gameCanvas {
-            box-shadow: 10px 10px 20px black;
-            background-color: black;
-            border-radius: 5px;
-            max-width: 100%;
-            max-height: 100%;
-            /* display: none; */
-        }
-
-        h1 {
-
-            text-align: center;
-            font-family: comic sans MS;
-            color: yellow;
-            text-shadow: 8px 8px 5px black;
-            padding-bottom: 20px;
-        }
-
-        body {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(0deg,
-                    rgb(0, 255, 255) 50%,
-                    rgb(2, 0, 143) 100%);
-        }
-
-        button {
-            padding: 5px;
-            margin-bottom: 10px;
-            background: blue;
-            color: yellow;
-            text-shadow: 2px 2px 1px black;
-            border-radius: 5px;
-            box-shadow: 2px 2px 1px black;
-        }
-    </style>
-
 </head>
 
 <body>
     <div>
-        <h1>Pac-Man Prison</h1>
-        <button id="sound-button">sound on</button>
+
         <canvas id="gameCanvas"></canvas>
 
-        <div id="startscreen" style="
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: url('images/pacman-startscreen.png');
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    display:flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10;
-                    display: none;
-                    
-        ">
+        <div id="start-screen">
+            <h1>Pac-Man Prison</h1>
+            <button id="start-button">Start</button>
+            <div id="instructions">
+                <h2>"Collect all the contraband before the guards catch you.
+                    <br>
 
-
-
+                    <br>
+                    BEWARE!!
+                    <br>
+                    they re-spawn where they died after 6 seconds"</h2>
+            </div>
         </div>
+
     </div>
 
     <script src="src/Game.js" type="module"></script>

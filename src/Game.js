@@ -26,6 +26,11 @@ function gameLoop() {
     checkGameWin();
 }
 
+document.querySelector('#start-button').addEventListener('click', () => {
+    document.querySelector('#start-screen').style.display = 'none'
+    document.querySelector('#gameCanvas').style.display = 'flex'
+})
+
 function checkGameWin() {
     if (!gameWin) {
         gameWin = tileMap.didWin();
@@ -56,9 +61,9 @@ function pause() {
 
 function drawGameEnd() {
     if (gameOver || gameWin) {
-        let text = '  " You Win ! "';
+        let text = '    " You Win ! "';
         if (gameOver) {
-            text = '" Game Over ! "';
+            text = ' " Game Over ! "';
         }
 
         ctx.fillStyle = "black";
