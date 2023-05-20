@@ -15,6 +15,7 @@ let gameOver = false;
 let gameWin = false;
 let gameOverSound = new Audio("sounds/gameOver.wav");
 let gameWinSound = new Audio("sounds/gameWin.wav");
+let startSound = new Audio("sounds/start.wav");
 
 function init() {
     tileSize = 32;
@@ -29,6 +30,7 @@ function init() {
     gameWin = false;
     gameOverSound = new Audio("sounds/gameOver.wav");
     gameWinSound = new Audio("sounds/gameWin.wav");
+    startSound = new Audio("sounds/start.wav");
 }
 
 function gameLoop() {
@@ -42,6 +44,7 @@ function gameLoop() {
 }
 
 document.querySelector('#start-button').addEventListener('click', () => {
+    startSound.play()
     document.querySelector('#start-screen').style.display = 'none'
     document.querySelector('#gameCanvas').style.display = 'flex'
 })
