@@ -75,3 +75,96 @@ h2 {
     text-shadow: 2px 2px 1px black;
     box-shadow: 8px 8px 18px black;
 }
+
+@media all and (min-width: 800px) {
+
+    #start-screen {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        margin-top: 50px;
+    }
+
+    h1 {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-shadow: 5px 5px 5px black;
+        margin-bottom: 680px;
+        padding-left: 60px;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 460px;
+    }
+
+    #start-button {
+        width: 600px;
+        margin-top: 660px;
+        background: blue;
+        color: yellow;
+        text-shadow: 2px 2px 1px black;
+        box-shadow: 8px 8px 18px black;
+    }
+
+}
+
+@media all and (max-width: 799px) {
+    #start-screen {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        margin-top: 50px;
+    }
+
+    h1 {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-shadow: 5px 5px 5px black;
+        margin-bottom: 680px;
+        padding-left: 60px;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 460px;
+    }
+
+    #start-button {
+        width: 300px;
+        margin-top: 660px;
+        background: blue;
+        color: yellow;
+        text-shadow: 2px 2px 1px black;
+        box-shadow: 8px 8px 18px black;
+    }
+}
+
+@media all and (max-width: 400px) {
+    #start-screen {
+        top: 40%;
+        left: 50%;
+    }
+
+    h1 {
+        margin-top: 80px;
+    }
+
+    h2 {
+        padding-bottom: 20px;
+        padding-top: 300px;
+    }
+
+    #start-button {
+        margin-top: 560px;
+        width: 250px;
+    }
+}
