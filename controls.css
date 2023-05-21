@@ -80,14 +80,11 @@ body {
     }
 
     #back {
-        margin-top: 260px;
+        margin-top: 200px;
     }
 
     #controls-h2 {
-
         font-size: 14px;
-
-        margin-top: 320px;
-
+        margin-top: 260px;
     }
 }
