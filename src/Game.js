@@ -47,11 +47,13 @@ document.querySelector('#start-button').addEventListener('click', () => {
     startSound.play()
     document.querySelector('#start-screen').style.display = 'none'
     document.querySelector('#gameCanvas').style.display = 'flex'
+    init()
 })
 
 document.querySelector('#win-restart-button').addEventListener('click', () => {
     document.querySelector('#win-screen').style.display = 'none'
     document.querySelector('#start-screen').style.display = 'flex'
+    init()
 })
 
 document.querySelector('#gameover-restart-button').addEventListener('click', () => {
