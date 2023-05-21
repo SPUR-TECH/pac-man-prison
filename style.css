@@ -29,35 +29,73 @@ body {
 
 #start-screen {
     position: absolute;
-    top: 500;
+    width: 470px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('images/pacman-startscreen.png');
+    background: url('images/startscreen.png');
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;
+    justify-content: center;
 }
 
-#gameover-title {
+h1 {
     position: absolute;
     text-align: center;
-    width: 500px;
+    width: 300px;
     font-family: comic sans MS;
     color: yellow;
     text-shadow: 5px 5px 5px black;
-    margin-top: -100px;
-    margin-left: -100px;
+    margin-top: -110px;
+}
+
+#instructions {
+    text-align: center;
+    font-family: comic sans MS;
+    font-size: 16px;
+    color: rgb(163, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    padding-bottom: 60px;
+    margin-top: 400px;
+}
+
+#controls-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 100px;
+    margin-top: 20px;
+    background: rgb(43, 255, 0);
+    text-shadow: 1px 1px 1px black;
+    box-shadow: 8px 8px 18px black;
+    margin-top: 320px;
+    cursor: pointer;
+}
+
+#start-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 400px;
+    margin-top: 620px;
+    background: blue;
+    color: yellow;
+    text-shadow: 2px 2px 1px black;
+    box-shadow: 8px 8px 18px black;
+    cursor: pointer;
 }
 
 #gameover-screen {
     position: absolute;
-    top: 500;
+    width: 300px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -72,12 +110,22 @@ body {
     display: flex;
 }
 
+#gameover-title {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    font-family: comic sans MS;
+    color: yellow;
+    text-shadow: 5px 5px 5px black;
+    margin-top: -70px;
+}
+
 #gameover-restart-button {
     position: absolute;
     border-radius: 50px;
     padding: 5px;
-    width: 100%;
-    margin-top: 260px;
+    width: 300px;
+    margin-top: 330px;
     background: blue;
     color: yellow;
     text-shadow: 2px 2px 1px black;
@@ -87,6 +135,7 @@ body {
 
 #win-screen {
     position: absolute;
+    width: 300px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -95,77 +144,29 @@ body {
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;
+    justify-content: center;
 }
 
 #win-title {
     position: absolute;
-    text-align: center;
     width: 300px;
     font-family: comic sans MS;
     color: yellow;
     text-shadow: 5px 5px 5px black;
-    margin-top: -100px;
-    margin-left: -90px;
+    margin-top: -80px;
 }
 
 #win-restart-button {
     position: absolute;
     border-radius: 50px;
     padding: 5px;
-    width: 100%;
-    margin-top: 260px;
-    background: blue;
-    color: yellow;
-    text-shadow: 2px 2px 1px black;
-    box-shadow: 8px 8px 18px black;
-    cursor: pointer;
-}
-
-h1 {
-    position: absolute;
-    text-align: center;
     width: 300px;
-    font-family: comic sans MS;
-    color: yellow;
-    text-shadow: 5px 5px 5px black;
-    margin-top: -110px;
-    margin-left: -50px;
-}
-
-#controls {
-    position: absolute;
-    border-radius: 50px;
-    padding: 5px;
-    width: 100px;
-    margin-top: 20px;
-    background: rgb(43, 255, 0);
-    text-shadow: 1px 1px 1px black;
-    box-shadow: 8px 8px 18px black;
-    margin-top: 200px;
-    cursor: pointer;
-}
-
-h2 {
-    text-align: center;
-    font-family: comic sans MS;
-    font-size: 20px;
-    color: rgb(163, 0, 0);
-    text-shadow: 1px 1px 2px black;
-    padding-bottom: 20px;
-    padding-top: 180px;
-}
-
-#start-button {
-    position: absolute;
-    border-radius: 50px;
-    padding: 5px;
-    width: 400px;
-    margin-top: 460px;
+    margin-top: 330px;
     background: blue;
     color: yellow;
     text-shadow: 2px 2px 1px black;
@@ -173,177 +174,30 @@ h2 {
     cursor: pointer;
 }
 
-@media all and (min-width: 800px) {
-
+@media all and (max-width: 500px) {
     #start-screen {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50px;
-        margin-top: 50px;
-    }
-
-    h1 {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        text-shadow: 5px 5px 5px black;
-        margin-bottom: 680px;
-        padding-left: 60px;
-    }
-
-    h2 {
-        font-size: 20px;
-        padding-bottom: 20px;
-        padding-top: 460px;
-    }
-
-    #start-button {
-        width: 400px;
-        margin-top: 660px;
-        background: blue;
-        color: yellow;
-        text-shadow: 2px 2px 1px black;
-        box-shadow: 8px 8px 18px black;
-    }
-
-    #win-screen {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        top: 60%;
-        left: 60%;
-        transform: translate(-50%, -50%);
-        border-radius: 0px;
-    }
-
-    #win-title {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        top: 10%;
-        left: 30%;
-        transform: translate(-50%, -50%);
-    }
-
-    #win-restart-button {
         width: 300px;
-        margin-top: 380px;
-        margin-left: 40px;
-        background: blue;
-        color: yellow;
-        text-shadow: 2px 2px 1px black;
-        box-shadow: 8px 8px 18px black;
-        cursor: pointer;
-    }
-}
-
-@media all and (max-width: 799px) {
-    #start-screen {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50px;
-        margin-top: 50px;
     }
 
     h1 {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        text-shadow: 5px 5px 5px black;
-        margin-bottom: 680px;
-        padding-left: 60px;
-    }
-
-    h2 {
-        font-size: 20px;
-        padding-bottom: 20px;
-        padding-top: 460px;
+        width: 300px;
     }
 
     #start-button {
         width: 300px;
-        margin-top: 660px;
-        background: blue;
-        color: yellow;
-        text-shadow: 2px 2px 1px black;
-        box-shadow: 8px 8px 18px black;
     }
 
-    #win-screen {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0px;
+    #controls-button {
+        margin-top: 260px;
     }
 
-    #win-title {
-        position: absolute;
-        top: 0px;
-        left: 10px;
-    }
-
-    #win-restart-button {
-        width: 200px;
-        margin-top: 380px;
-        background: blue;
-        color: yellow;
-        text-shadow: 2px 2px 1px black;
-        box-shadow: 8px 8px 18px black;
-        cursor: pointer;
-    }
-}
-
-@media all and (max-width: 570px) {
-    #win-screen {
-        border-radius: 50px;
-    }
-}
-
-@media all and (max-width: 400px) {
-    #start-screen {
-        top: 40%;
-        left: 50%;
-    }
-
-    h1 {
-        margin-top: 80px;
-    }
-
-    #controls {
-        position: absolute;
-        border-radius: 50px;
-        padding: 5px;
-        width: 100px;
-        margin-top: 20px;
-        background: rgb(43, 255, 0);
-        text-shadow: 1px 1px 1px black;
-        box-shadow: 8px 8px 18px black;
-        text-decoration: none;
-    }
-
-    h2 {
-        padding-bottom: 20px;
-        padding-top: 300px;
+    #instructions {
+        padding-bottom: 60px;
+        margin-top: 300px;
     }
 
     #start-button {
-        margin-top: 560px;
-        width: 250px;
-    }
-
-    #win-screen {
-        border-radius: 50px;
-    }
-
-    #win-restart-button {
-        margin-top: 180px;
+        width: 300px;
+        margin-top: 580px;
     }
 }
