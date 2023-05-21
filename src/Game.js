@@ -49,13 +49,13 @@ document.querySelector('#start-button').addEventListener('click', () => {
     document.querySelector('#gameCanvas').style.display = 'flex'
 })
 
-document.querySelector('#restart-button2').addEventListener('click', () => {
+document.querySelector('#win-restart-button').addEventListener('click', () => {
     document.querySelector('#win-screen').style.display = 'none'
     document.querySelector('#start-screen').style.display = 'flex'
 })
 
-document.querySelector('#restart-button').addEventListener('click', () => {
-    document.querySelector('#restart-screen').style.display = 'none'
+document.querySelector('#gameover-restart-button').addEventListener('click', () => {
+    document.querySelector('#gameover-screen').style.display = 'none'
     document.querySelector('#win-screen').style.display = 'none'
     document.querySelector('#start-screen').style.display = 'flex'
     init()
