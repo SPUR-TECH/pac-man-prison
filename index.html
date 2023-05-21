@@ -1,62 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+ <link rel="shortcut icon" href="./images/pac1.png">
+ <link rel="stylesheet" href="style.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Pacman-Prison</title>
 
-    <link rel="shortcut icon" href="./images/pac1.png">
+ <body>
+     <div>
 
-    <link rel="stylesheet" href="style.css">
-    <title>Pacman-Prison</title>
+         <canvas id="gameCanvas"></canvas>
 
-</head>
+         <div id="start-screen" style="display: flex;">
+             <h1>Pac-Man Prison</h1>
 
-<body>
-    <div>
+             <button id="controls-button">
+                 <a href="controls.html">Controls</a></button>
 
-        <canvas id="gameCanvas"></canvas>
+             <button id="start-button">Start</button>
+             <div id="instructions">
+                 <h2>"Collect all the contraband before the guards catch you.
+                     <br>
 
-        <div id="start-screen" style="display: flex;">
-            <h1>Pac-Man Prison</h1>
+                     <br>
+                     BEWARE!!
+                     <br>
+                     they re-spawn where they died after 6 seconds"</h2>
+             </div>
+         </div>
 
-            <button id="controls-button">
-                <a href="controls.html">Controls</a></button>
+         <div id="gameover-screen" style="display: none;">
+             <h1 id="gameover-title">" GAME OVER ! "</h1>
 
-            <button id="start-button">Start</button>
-            <div id="instructions">
-                <h2>"Collect all the contraband before the guards catch you.
-                    <br>
+             <button id="gameover-restart-button">Restart</button>
 
-                    <br>
-                    BEWARE!!
-                    <br>
-                    they re-spawn where they died after 6 seconds"</h2>
-            </div>
-        </div>
+         </div>
 
-        <div id="gameover-screen" style="display: none;">
-            <h1 id="gameover-title">" GAME OVER ! "</h1>
+         <div id="win-screen" style="display: none;">
+             <h1 id="win-title">" YOU WIN ! "</h1>
 
-            <button id="gameover-restart-button">Restart</button>
+             <button id="win-restart-button">Restart</button>
 
-        </div>
+         </div>
 
-        <div id="win-screen" style="display: none;">
-            <h1 id="win-title">" YOU WIN ! "</h1>
+     </div>
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+         integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-            <button id="win-restart-button">Restart</button>
+     <script src="src/audio.js"></script> -->
+     <script src="src/Game.js" type="module"></script>
 
-        </div>
+ </body>
 
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
-        integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="src/Game.js" type="module"></script>
-
-</body>
-
-</html>
+ </html>
