@@ -83,7 +83,7 @@ h1 {
     position: absolute;
     border-radius: 50px;
     padding: 5px;
-    width: 400px;
+    width: 200px;
     margin-top: 620px;
     background: blue;
     color: yellow;
@@ -108,6 +108,7 @@ h1 {
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;
+    justify-content: center;
 }
 
 #gameover-title {
@@ -124,7 +125,7 @@ h1 {
     position: absolute;
     border-radius: 50px;
     padding: 5px;
-    width: 300px;
+    width: 200px;
     margin-top: 330px;
     background: blue;
     color: yellow;
@@ -165,7 +166,7 @@ h1 {
     position: absolute;
     border-radius: 50px;
     padding: 5px;
-    width: 300px;
+    width: 200px;
     margin-top: 330px;
     background: blue;
     color: yellow;
@@ -181,10 +182,7 @@ h1 {
 
     h1 {
         width: 300px;
-    }
-
-    #start-button {
-        width: 300px;
+        padding-top: 30px;
     }
 
     #controls-button {
@@ -192,12 +190,15 @@ h1 {
     }
 
     #instructions {
-        padding-bottom: 60px;
-        margin-top: 300px;
+        font-size: 14px;
+        margin-top: 310px;
     }
 
     #start-button {
-        width: 300px;
-        margin-top: 580px;
+        margin-top: 540px;
+    }
+
+    #gameover-title {
+        margin-top: -100px;
     }
 }
