@@ -76,7 +76,7 @@ function checkGameOver() {
     if (!gameOver) {
         gameOver = isGameOver();
         if (gameOver) {
-            document.querySelector('#restart-screen').style.display = 'flex'
+            document.querySelector('#gameover-screen').style.display = 'flex'
             document.querySelector('#gameCanvas').style.display = 'none'
             gameOverSound.play();
         }
