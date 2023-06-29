@@ -35,7 +35,7 @@ body {
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -50,7 +50,7 @@ body {
     font-family: comic sans MS;
     color: yellow;
     text-shadow: 5px 5px 5px black;
-    margin-top: -130px;
+    margin-top: -70px;
 }
 
 #controls-h2 {
