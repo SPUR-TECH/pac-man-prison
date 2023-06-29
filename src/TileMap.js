@@ -281,32 +281,39 @@ export default class TileMap {
     }
 
     didWin() {
-        return this.#dotsLeft() === 0;
+        const dotsLeft = this.#dotsLeft();
+        const fagsLeft = this.#fagsLeft();
+        const phonesLeft = this.#phonesLeft();
+        const cashLeft = this.#cashLeft();
 
+        return dotsLeft === 0 && fagsLeft === 0 && phonesLeft === 0 && cashLeft === 0;
     }
 
     #dotsLeft() {
-        return this.map.flat().filter((tile) => tile === 0).length
+        return this.map.flat().filter((tile) => tile === 0).length;
+    }
+
+    #fagsLeft() {
+        return this.map.flat().filter((tile) => tile === 7).length;
+    }
+
+    #phonesLeft() {
+        return this.map.flat().filter((tile) => tile === 8).length;
+    }
+
+    #cashLeft() {
+        return this.map.flat().filter((tile) => tile === 9).length;
     }
 
     eatDot(x, y) {
         const row = y / this.tileSize;
         const column = x / this.tileSize;
         if (Number.isInteger(row) && Number.isInteger(column)) {
-            if (this.map[row][column] === 0) {
-                this.map[row][column] = 9;
-                return true;
-            }
-            if (this.map[row][column] === 6) {
-                this.map[row][column] = 9;
-                return true;
-            }
-            if (this.map[row][column] === 7) {
-                this.map[row][column] = 9;
-                return true;
-            }
-            if (this.map[row][column] === 8) {
-                this.map[row][column] = 9;
+            const tile = this.map[row][column];
+            if (tile === 0 || tile === 6 || tile === 7 || tile === 8) {
+                setTimeout(() => {
+                    this.map[row][column] = 9;
+                }, 200); // Delay in milliseconds (200ms in this example)
                 return true;
             }
         }
@@ -317,19 +324,7 @@ export default class TileMap {
         const row = y / this.tileSize;
         const column = x / this.tileSize;
         if (Number.isInteger(row) && Number.isInteger(column)) {
-            if (this.map[row][column] === 0) {
-                this.map[row][column] = 11;
-                return true;
-            }
-            if (this.map[row][column] === 6) {
-                this.map[row][column] = 11;
-                return true;
-            }
-            if (this.map[row][column] === 7) {
-                this.map[row][column] = 11;
-                return true;
-            }
-            if (this.map[row][column] === 8) {
+            if (this.map[row][column] === 9) {
                 this.map[row][column] = 11;
                 return true;
             }

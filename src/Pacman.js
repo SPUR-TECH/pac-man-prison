@@ -83,6 +83,7 @@ export default class Pacman {
         }
 
         this.#eatDot();
+        this.#eatCash();
         this.#eatPowerDot();
         this.#eatGuard(enemies);
 
@@ -212,7 +213,12 @@ export default class Pacman {
     #eatDot() {
         if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
             this.wakaSound.play();
+        }
+    }
 
+    #eatCash() {
+        if (this.tileMap.eatCash(this.x, this.y) && this.madeFirstMove) {
+            this.wakaSound.play();
         }
     }
 
