@@ -56,6 +56,11 @@ h1 {
     margin-top: -100px;
 }
 
+#h1-easy {
+    color: greenyellow;
+    margin-top: -50px;
+}
+
 #instructions {
     text-align: center;
     font-family: comic sans MS;
@@ -81,13 +86,17 @@ h1 {
 
 #start-button {
     position: absolute;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
     border-radius: 50px;
     padding: 5px;
-    width: 200px;
-    top: -10px;
+    width: 150px;
+    top: -20px;
     background: blue;
     color: yellow;
-    /* font-weight: 700; */
+    font-weight: 700;
+    font-family: comic sans MS;
     text-shadow: 2px 2px 1px black;
     box-shadow: 8px 8px 18px black;
     cursor: pointer;
@@ -95,13 +104,17 @@ h1 {
 
 .button-link {
     position: absolute;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
     border-radius: 50px;
     padding: 5px;
-    width: 200px;
+    width: 150px;
     top: 510px;
     background: blue;
     color: red;
     font-weight: 700;
+    font-family: comic sans MS;
     text-shadow: 2px 2px 1px black;
     box-shadow: 8px 8px 18px black;
     cursor: pointer;
@@ -176,7 +189,7 @@ h1 {
     font-family: comic sans MS;
     color: yellow;
     text-shadow: 5px 5px 5px black;
-    margin-top: -70px;
+    margin-top: -110px;
 }
 
 #win-restart-button {
@@ -207,7 +220,7 @@ h1 {
     }
 
     #instructions {
-        font-size: 14px;
+        font-size: 13px;
         margin-top: 250px;
     }
 
