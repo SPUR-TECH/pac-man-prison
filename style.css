@@ -126,7 +126,7 @@ h1 {
 
 #gameover-screen {
     position: absolute;
-    width: 300px;
+    max-width: 300px;
     top: 0;
     right: 0;
     bottom: 0;
