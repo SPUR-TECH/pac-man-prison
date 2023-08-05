@@ -299,7 +299,7 @@ h1 {
 @media all and (max-width: 1000px) {
 
     body {
-        height: 700px;
+        height: 1000px;
     }
 
     #start-screen {
