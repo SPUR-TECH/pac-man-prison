@@ -141,9 +141,9 @@ h1 {
     }
 
     50% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        filter: brightness(200%);
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+        filter: brightness(230%);
     }
 
     100% {
@@ -161,9 +161,9 @@ h1 {
     }
 
     50% {
-        -moz-transform: scale(1.1);
-        transform: scale(1.1);
-        filter: brightness(200%);
+        -moz-transform: scale(1.3);
+        transform: scale(1.3);
+        filter: brightness(230%);
     }
 
     100% {
@@ -181,9 +181,9 @@ h1 {
     }
 
     50% {
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-        filter: brightness(200%);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+        filter: brightness(230%);
     }
 
     100% {
@@ -201,9 +201,9 @@ h1 {
     }
 
     50% {
-        -o-transform: scale(1.1);
-        transform: scale(1.1);
-        filter: brightness(200%);
+        -o-transform: scale(1.3);
+        transform: scale(1.3);
+        filter: brightness(230%);
     }
 
     100% {
