@@ -45,7 +45,24 @@ function gameLoop() {
 
 document.querySelector('#start-button').addEventListener('click', () => {
     startSound.play()
-    document.querySelector('#start-screen').style.display = 'none'
+
+    // Apply rotate, shrink, and fade effect to the start screen
+    let startScreen = document.querySelector('#start-screen');
+    startScreen.style.transition = "transform 2s ease, opacity 2s ease, width 1s ease";
+    startScreen.style.transformOrigin = "0";
+    startScreen.style.transform = "rotate(180deg) scale(0.001)";
+    startScreen.style.opacity = "0";
+
+    // After the animations, hide the start screen and reset its styles
+    setTimeout(() => {
+        startScreen.style.transform = "none";
+        startScreen.style.opacity = "1";
+        startScreen.style.width = "400px";
+        startScreen.style.transition = "none";
+        startScreen.style.display = 'none'; // Move this line here
+    }, 2000);
+
+    // Move these lines to after the setTimeout function
     document.querySelector('#gameCanvas').style.display = 'flex'
     init()
 })

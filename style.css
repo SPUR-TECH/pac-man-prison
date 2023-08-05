@@ -29,21 +29,32 @@ body {
 
 #start-screen {
     position: absolute;
-    width: 470px;
-    top: 0;
-    right: 0;
+    width: 400px;
+    top: 42%;
     bottom: 0;
-    left: 0;
+    left: 50%;
     background: url('images/startscreen.png');
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 42%;
-    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;
     justify-content: center;
+}
+
+.start-screen-animation {
+    animation: rotate-shrink-fade 2s ease;
+}
+
+@keyframes rotate-shrink-fade {
+    0% {
+        transform: rotate(0) scale(1) opacity(1);
+    }
+
+    100% {
+        transform: rotate(3600deg) scale(0.001) opacity(0);
+    }
 }
 
 h1 {
@@ -63,12 +74,12 @@ h1 {
 
 #instructions {
     text-align: center;
+    justify-content: center;
     font-family: comic sans MS;
     font-size: 16px;
     color: rgb(163, 0, 0);
     text-shadow: 1px 1px 2px black;
-    padding-bottom: 60px;
-    margin-top: 400px;
+    margin-top: 350px;
 }
 
 #controls-button {
@@ -86,15 +97,19 @@ h1 {
     cursor: pointer;
 }
 
+.buttons {
+    display: block;
+    line-height: 50px;
+}
+
 #start-button {
-    position: absolute;
     border-style: solid;
     border-width: 2px;
     border-color: red;
     border-radius: 50px;
     padding: 5px;
     width: 150px;
-    top: -20px;
+    margin-top: 20px;
     background: blue;
     color: yellow;
     font-weight: 700;
@@ -104,15 +119,21 @@ h1 {
     cursor: pointer;
 }
 
-.button-link {
-    position: absolute;
+#hard-button-wrapper {
+    display: inline-block;
+    animation: pulsate 2s infinite;
+}
+
+#hard-button {
+    align-items: center;
     border-style: solid;
     border-width: 2px;
     border-color: red;
     border-radius: 50px;
-    padding: 5px;
+    padding: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 150px;
-    top: 510px;
     background: blue;
     color: red;
     font-weight: 700;
@@ -122,6 +143,23 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        filter: brightness(100%);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: brightness(200%);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(100%);
+    }
 }
 
 #gameover-screen {
@@ -222,13 +260,13 @@ h1 {
     }
 
     #instructions {
-        font-size: 13px;
+        font-size: 15px;
         margin-top: 250px;
     }
 
-    #start-button {
+    /* #start-button {
         margin-top: 480px;
-    }
+    } */
 
     #gameover-title {
         margin-top: -100px;
