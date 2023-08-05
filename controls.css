@@ -78,10 +78,10 @@ body {
     cursor: pointer;
 }
 
-@media all and (max-width: 2000px) {
+@media all and (max-width: 1000px) {
 
     body {
-        height: 600px;
+        height: 700px;
     }
 
     #controls-screen {
@@ -98,7 +98,7 @@ body {
     }
 
     #back {
-        margin-top: 170px;
+        margin-top: 180px;
     }
 
     #controls-h2 {
@@ -108,17 +108,12 @@ body {
 }
 
 @media all and (max-width: 500px) {
-
-    body {
-        height: 100vh;
-    }
-
     #controls-screen {
         width: 300px;
     }
 
     #back {
-        margin-top: 215px;
+        margin-top: 200px;
     }
 
     #controls-h2 {

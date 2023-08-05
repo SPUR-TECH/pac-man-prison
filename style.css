@@ -296,7 +296,7 @@ h1 {
     cursor: pointer;
 }
 
-@media all and (max-width: 2000px) {
+@media all and (max-width: 1000px) {
 
     body {
         height: 700px;
