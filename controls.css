@@ -27,16 +27,13 @@ body {
 #controls-screen {
     position: absolute;
     width: 470px;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     background: url('images/startscreen.png');
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 42%;
-    left: 50%;
+
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;

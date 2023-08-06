@@ -8,7 +8,7 @@ body {
     padding: 20px;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 110vh;
     background: linear-gradient(0deg,
             rgb(0, 255, 255) 50%,
             rgb(2, 0, 143) 100%);
@@ -216,16 +216,15 @@ h1 {
 #gameover-screen {
     position: absolute;
     max-width: 300px;
-    top: 0;
+    top: 50%;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 50%;
     background: url('images/sad-pacman.png');
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 50%;
-    left: 50%;
+    margin-bottom: 0px;
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;
@@ -298,10 +297,6 @@ h1 {
 
 @media all and (max-width: 1000px) {
 
-    body {
-        height: 1000px;
-    }
-
     #start-screen {
         border-radius: 0%;
         border-top-left-radius: 20px;
@@ -323,13 +318,41 @@ h1 {
         font-size: 13px;
         margin-top: 220px;
     }
+
+    #gameover-screen {
+        height: 200px;
+        width: 200px;
+        border-radius: 0%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #gameover-title {
+        margin-top: -90px;
+    }
+
+    #gameover-restart-button {
+        margin-top: 220px;
+    }
+
+    #win-screen {
+        height: 200px;
+        width: 200px;
+        border-radius: 0%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #win-title {
+        margin-top: -90px;
+    }
+
+    #win-restart-button {
+        margin-top: 220px;
+    }
 }
 
 @media all and (max-width: 500px) {
-
-    body {
-        height: 100vh;
-    }
 
     #start-screen {
         width: 300px;
