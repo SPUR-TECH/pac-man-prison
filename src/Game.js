@@ -47,6 +47,7 @@ document.querySelector('#start-button').addEventListener('click', () => {
     startSound.play()
     document.querySelector('#start-screen').style.display = 'none'
     document.querySelector('#gameCanvas').style.display = 'flex'
+    document.body.style.overflow = "hidden"
     init()
 })
 
