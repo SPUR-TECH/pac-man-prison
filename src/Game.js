@@ -17,6 +17,8 @@ let gameOverSound = new Audio("sounds/gameOver.wav");
 let gameWinSound = new Audio("sounds/gameWin.wav");
 let startSound = new Audio("sounds/start.wav");
 
+let started = false;
+
 function init() {
     tileSize = 32;
     velocity = 2;
@@ -34,13 +36,15 @@ function init() {
 }
 
 function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    tileMap.draw(ctx);
-    pacman.draw(ctx, pause(), enemies);
-    enemies.forEach((enemy) => enemy.draw(ctx, pause(), pacman));
-    drawGameEnd();
-    checkGameOver();
-    checkGameWin();
+    if (started) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        tileMap.draw(ctx);
+        pacman.draw(ctx, pause(), enemies);
+        enemies.forEach((enemy) => enemy.draw(ctx, pause(), pacman));
+        drawGameEnd();
+        checkGameOver();
+        checkGameWin();
+    }
 }
 
 document.querySelector('#start-button').addEventListener('click', () => {
@@ -48,6 +52,7 @@ document.querySelector('#start-button').addEventListener('click', () => {
     document.querySelector('#start-screen').style.display = 'none'
     document.querySelector('#gameCanvas').style.display = 'flex'
     init()
+    started = true;
 })
 
 document.querySelector('#win-restart-button').addEventListener('click', () => {
@@ -92,7 +97,7 @@ function isGameOver() {
 }
 
 function pause() {
-    return !pacman.madeFirstMove || gameOver || gameWin;
+    return !pacman.madeFirstMove || !started || gameOver || gameWin;
 }
 
 function drawGameEnd() {
