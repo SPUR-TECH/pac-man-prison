@@ -18,6 +18,7 @@ let gameWinSound = new Audio("sounds/gameWin.wav");
 let startSound = new Audio("sounds/start.wav");
 
 let started = false;
+let gameLoopInterval;
 
 
 function init() {
@@ -54,6 +55,7 @@ document.querySelector('#start-button').addEventListener('click', () => {
     document.querySelector('#gameCanvas').style.display = 'flex'
     init()
     started = true;
+    clearInterval(gameLoopInterval);
 })
 
 document.querySelector('#win-restart-button').addEventListener('click', () => {
