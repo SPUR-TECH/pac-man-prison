@@ -33,7 +33,6 @@ body {
     border-radius: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-
     transform: translate(-50%, -50%);
     z-index: 10;
     display: flex;

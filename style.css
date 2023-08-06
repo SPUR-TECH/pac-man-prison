@@ -14,15 +14,6 @@ body {
             rgb(2, 0, 143) 100%);
 }
 
-#gameCanvasWrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-}
-
 #gameCanvas {
     margin-top: 150px;
     box-shadow: 10px 10px 20px black;
@@ -305,6 +296,10 @@ h1 {
 }
 
 @media all and (max-width: 1000px) {
+
+    body {
+        height: 1000px;
+    }
 
     #start-screen {
         border-radius: 0%;
