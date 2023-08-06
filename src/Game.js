@@ -19,6 +19,7 @@ let startSound = new Audio("sounds/start.wav");
 
 let started = false;
 
+
 function init() {
     tileSize = 32;
     velocity = 2;
