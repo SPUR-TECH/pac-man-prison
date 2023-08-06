@@ -16,51 +16,51 @@
 
  <body>
      <div>
+         <div id="gameCanvasWrapper">
+             <canvas id="gameCanvas"></canvas>
 
-         <canvas id="gameCanvas"></canvas>
+             <div id="start-screen" style="display: flex;">
+                 <h1>Pac-Man Prison</h1>
+                 <h1 id="h1-easy"> EASY !!</h1>
 
-         <div id="start-screen" style="display: flex;">
-             <h1>Pac-Man Prison</h1>
-             <h1 id="h1-easy"> EASY !!</h1>
+                 <a id="controls-button" href="controls.html">Controls</a>
 
-             <a id="controls-button" href="controls.html">Controls</a>
+                 <div id="instructions">
 
-             <div id="instructions">
+                     <h2>"Collect all the contraband and then all the cash before the '(4)' guards catch you.
+                         <br>
 
-                 <h2>"Collect all the contraband and then all the cash before the '(4)' guards catch you.
-                     <br>
+                         <br>
+                         BEWARE!!
+                         <br>
+                         they re-spawn where they died after 6 seconds"</h2>
 
-                     <br>
-                     BEWARE!!
-                     <br>
-                     they re-spawn where they died after 6 seconds"</h2>
-
-                 <div class="buttons">
-                     <button id="start-button">START</button>
-                     <br>
-                     <div id="hard-button-wrapper">
-                         <a id="hard-button" href="https://spur-tech.github.io/pacman-prison-hard/">HARD !!</a>
+                     <div class="buttons">
+                         <button id="start-button">START</button>
+                         <br>
+                         <div id="hard-button-wrapper">
+                             <a id="hard-button" href="https://spur-tech.github.io/pacman-prison-hard/">HARD !!</a>
+                         </div>
                      </div>
+
                  </div>
 
              </div>
 
+             <div id="gameover-screen" style="display: none;">
+                 <h1 id="gameover-title">" GAME OVER ! "</h1>
+
+                 <button id="gameover-restart-button">Restart</button>
+
+             </div>
+
+             <div id="win-screen" style="display: none;">
+                 <h1 id="win-title">" YOU WIN ! "</h1>
+
+                 <button id="win-restart-button">Restart</button>
+
+             </div>
          </div>
-
-         <div id="gameover-screen" style="display: none;">
-             <h1 id="gameover-title">" GAME OVER ! "</h1>
-
-             <button id="gameover-restart-button">Restart</button>
-
-         </div>
-
-         <div id="win-screen" style="display: none;">
-             <h1 id="win-title">" YOU WIN ! "</h1>
-
-             <button id="win-restart-button">Restart</button>
-
-         </div>
-
      </div>
      <script src="src/Game.js" type="module"></script>
 
