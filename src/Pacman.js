@@ -14,11 +14,8 @@ export default class Pacman {
 		this.pacmanAnimationTimer = null;
 
 		this.pacmanRotation = this.Rotation.right;
-		// this.wakaSound = new Howler("sounds/waka.wav");
 
-		this.wakaSound = new Howl({
-			src: "sounds/waka.wav",
-		});
+		this.wakaSound = new Audio("sounds/waka.wav");
 
 		this.powerDotSound = new Audio("sounds/powerDot.wav");
 		this.powerDotActive = false;
